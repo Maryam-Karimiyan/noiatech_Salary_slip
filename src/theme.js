@@ -1,19 +1,19 @@
 import { createTheme } from "@mui/material";
 
-const getTheme = (mde) =>
+const getTheme = () =>
   createTheme({
+    background: {
+      default: "#F5FAFF", // رنگ پس‌زمینه کل صفحات
+    },
     palette: {
-      background: {
-        default: "#45474b", // رنگ پس‌زمینه کل صفحات
-        paper: "#ffffff", // رنگ پس‌زمینه‌ی کامپوننت‌های سطحی مثل Card, Paper
-      },
       primary: {
-        main: "#FFA800",
-        light: "#45474b",
+        main: "#007BFF",
+        light: "#A8D2FF",
+        dark: "#040C7E",
         contrastText: "#FFFFFF",
       },
       secondary: {
-        main: "#D9D9D9",
+        main: "#A0A3E6",
         contrastText: "#FFF9EF",
       },
     },
