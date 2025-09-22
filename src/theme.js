@@ -1,7 +1,10 @@
 import { createTheme } from "@mui/material";
 
-const getTheme = (mde) =>
+const getTheme = () =>
   createTheme({
+    background: {
+      default: "#F5FAFF", // رنگ پس‌زمینه کل صفحات
+    },
     palette: {
       primary: {
         main: "#007BFF",
@@ -10,7 +13,7 @@ const getTheme = (mde) =>
         contrastText: "#FFFFFF",
       },
       secondary: {
-        main: "#D9D9D9",
+        main: "#A0A3E6",
         contrastText: "#FFF9EF",
       },
     },

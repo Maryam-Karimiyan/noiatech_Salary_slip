@@ -4,9 +4,21 @@ import ButtonComponent from "../../components/ButtonComponent";
 import CaptchaComponent from "../../components/CaptchaComponent";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { login } from "../../redux/userSlice";
+import { useDispatch } from "react-redux";
 export default function LoginPage() {
   const [isAdmin, setIsAdmin] = useState(false);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const handleLogin = () => {
+    if (isAdmin) {
+      dispatch(login({ role: "admin" }));
+      navigate("/admin");
+    } else {
+      dispatch(login({ role: "user" }));
+      navigate("/user");
+    }
+  };
   return (
     <Box
       sx={{
@@ -83,10 +95,10 @@ export default function LoginPage() {
               width: "100%",
             }}
           />
-          <CaptchaComponent />
+          {/* <CaptchaComponent /> */}
         </Box>
         <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-          <ButtonComponent sx={{ width: "100%" }}>
+          <ButtonComponent onClick={handleLogin} sx={{ width: "100%" }}>
             <Typography fontWeight={600} fontSize={{ xs: 16, md: 20 }}>
               ورود
             </Typography>
