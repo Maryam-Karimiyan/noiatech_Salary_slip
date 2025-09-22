@@ -1,35 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LoginPage from "./pages/auth/LoginPage";
+import Header from "./components/Header";
+import BottomNavbar from "./components/BottomNavbar";
+import RegisterPage from "./pages/auth/RegisterPage";
+import UserVerification from "./pages/auth/UserVerification";
+import NameAndApprove from "./pages/DesignPizza/NameAndApprove";
+import Home from "./pages/Home";
+import ChoosePizzaType from "./pages/DesignPizza/ChoosePizzaType";
+import DesignPizza from "./pages/DesignPizza/DesignPizza";
+import { Container } from "@mui/material";
+import Cart from "./pages/Cart/Cart";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Container>
+      <Header />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/userVerification" element={<UserVerification />} />
+          <Route path="/designPizza" element={<ChoosePizzaType />} />
+          <Route path="/designPizza/complete" element={<DesignPizza />} />
+          <Route path="/orderPizza/:order" element={<NameAndApprove />} />
+          <Route path="/cart/:cart" element={<Cart />} />
+          <Route path="*" element={<h1>صفحه پیدا نشد 😢</h1>} />
+        </Routes>
+        <BottomNavbar />
+      </Router>
+    </Container>
+  );
 }
 
-export default App
+export default App;
