@@ -2,7 +2,7 @@ import { Box, InputAdornment, Stack, Typography } from "@mui/material";
 import InputComponent from "../../components/InputComponent";
 import ButtonComponent from "../../components/ButtonComponent";
 import { useState } from "react";
-import CaptchaComponent from "../../components/CaptchaComponent";
+// import CaptchaComponent from "../../components/CaptchaComponent";
 import { useNavigate } from "react-router-dom";
 export default function RegisterPage() {
   const navigate = useNavigate();
@@ -79,7 +79,7 @@ export default function RegisterPage() {
         }}
       />
       {/* Captcha verification */}
-      <CaptchaComponent onVerify={(token) => setCaptchaVerified(!!token)} />
+      {/* <CaptchaComponent onVerify={(token) => setCaptchaVerified(!!token)} /> */}
       <ButtonComponent
         sx={{
           cursor: "pointer",

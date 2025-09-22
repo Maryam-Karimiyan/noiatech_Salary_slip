@@ -1,90 +1,107 @@
-import { Box, InputAdornment, Stack, Typography } from "@mui/material";
+import { Box, InputLabel, Typography } from "@mui/material";
 import InputComponent from "../../components/InputComponent";
 import ButtonComponent from "../../components/ButtonComponent";
+import CaptchaComponent from "../../components/CaptchaComponent";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 export default function LoginPage() {
+  const [isAdmin, setIsAdmin] = useState(false);
   const navigate = useNavigate();
   return (
     <Box
-      width={325}
       sx={{
+        width: "100%",
+        height: "100vh",
         display: "flex",
-        justifyItems: "center",
+        justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
-        margin: "70px auto",
-        gap: 2,
+        gap: 4,
+        background:
+          "radial-gradient(circle, hsla(211, 100%, 50%, 1) 0%, hsla(177, 100%, 66%, 1) 100%);",
       }}
     >
       <Typography
+        fontSize={{ xs: 18, md: 24 }}
+        color="primary.contrastText"
         fontWeight={700}
-        textAlign="center"
-        variant="h6"
-        color="primary.contrastText"
       >
-        ورود
+        به پنل موسسه پرستاران خوش آمدید
       </Typography>
-      <InputComponent
-        placeholder="9928559292"
-        typeNumber={true}
-        labelTextColor="primary.contrastText"
-        helperText="شماره همراه"
+      <Box
         sx={{
-          width: "100%",
-          fontWeight: 700,
-          "& .MuiOutlinedInput-root": {
-            "& fieldset": {
-              borderColor: "primary.main",
-              borderRadius: "10px",
-            },
-          },
-        }}
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <Typography color="primary.contrastText">+98</Typography>
-            </InputAdornment>
-          ),
-        }}
-      />
-      <InputComponent
-        labelTextColor="primary.contrastText"
-        helperText="رمز عبور"
-        sx={{
-          width: "100%",
-          fontWeight: 700,
-          "& .MuiOutlinedInput-root": {
-            "& fieldset": {
-              borderColor: "primary.main",
-              borderRadius: "10px",
-            },
-          },
-        }}
-      />
-      <ButtonComponent
-        sx={{
-          cursor: "pointer",
-          color: "primary.light",
-          width: "100%",
-          fontWeight: 700,
-          marginTop: "10px",
-          borderRadius: "10px",
+          width: { xs: 350, md: 465 },
+          direction: "rtl",
+          bgcolor: "primary.contrastText",
+          px: 2,
+          py: 3,
+          display: "flex",
+          flexDirection: "column",
+          gap: 3,
+          borderRadius: 2,
         }}
       >
-        دریافت کد تایید
-      </ButtonComponent>
-      <Typography
-        sx={{ alignSelf: "flex-end", cursor: "pointer" }}
-        color="primary.contrastText"
-        fontSize={10}
-        fontWeight={300}
-        onClick={() => navigate("/register")}
-      >
-        حساب کاربری ندارید ؟{" "}
-        <Stack component="span" color="primary.main" display="inline">
-          ثبت نام
-        </Stack>{" "}
-      </Typography>
+        <Typography
+          color="primary.main"
+          fontWeight={600}
+          fontSize={{ xs: 18, md: 24 }}
+        >
+          {isAdmin ? "ورود مدیر" : "ورود پرسنل"}
+        </Typography>
+        <Box display="flex" flexDirection="column" gap={1}>
+          <InputLabel htmlFor="code">
+            <Typography
+              fontWeight={450}
+              fontSize={{ xs: 14, md: 18 }}
+              color="primary.dark"
+            >
+              کد ملی{" "}
+              <Box component="span" sx={{ color: "primary.main" }}>
+                |
+              </Box>{" "}
+              کد پرسنلی
+            </Typography>
+          </InputLabel>
+          <InputComponent
+            id="code"
+            sx={{
+              width: "100%",
+            }}
+          />
+          <InputLabel color="primary.dark" htmlFor="password">
+            <Typography
+              fontSize={{ xs: 14, md: 18 }}
+              fontWeight={450}
+              color="primary.dark"
+            >
+              رمز عبور
+            </Typography>
+          </InputLabel>
+          <InputComponent
+            id="password"
+            sx={{
+              width: "100%",
+            }}
+          />
+          <CaptchaComponent />
+        </Box>
+        <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+          <ButtonComponent sx={{ width: "100%" }}>
+            <Typography fontWeight={600} fontSize={{ xs: 16, md: 20 }}>
+              ورود
+            </Typography>
+          </ButtonComponent>
+          <ButtonComponent
+            onClick={() => setIsAdmin(!isAdmin)}
+            sx={{ width: "100%" }}
+            variant="outlined"
+          >
+            <Typography fontWeight={600} fontSize={{ xs: 16, md: 20 }}>
+              {isAdmin ? "ورود پرسنل" : "ورود مدیر"}
+            </Typography>
+          </ButtonComponent>
+        </Box>
+      </Box>
     </Box>
   );
 }
