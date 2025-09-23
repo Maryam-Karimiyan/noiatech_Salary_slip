@@ -6,7 +6,7 @@ export default function InputComponent({
   variant = "outlined",
   size = "small",
   color = "primary.dark",
-  labelTextColor = "",
+  labelTextColor = "primary.dark",
   sx,
   InputProps,
   typeNumber = false,
@@ -17,7 +17,7 @@ export default function InputComponent({
   return (
     <TextField
       readOnly={readOnly}
-      type={typeNumber ? "number" : null}
+      type={typeNumber ? "number" : ""}
       helperText={helperText && helperText}
       size={size && size}
       label={label && label}
@@ -29,9 +29,12 @@ export default function InputComponent({
           sx: {
             "& input, & textarea": {
               color: color,
-              textAlign: "center",
+              textAlign: "right",
+              direction:"rtl",
               position: hasStartAdornment && "relative",
               left: hasStartAdornment && -20,
+              fontSize: 12,
+               backgroundColor: "primary.contrastText"
             },
           },
         },
@@ -40,11 +43,10 @@ export default function InputComponent({
             order: -1, // نمایش helperText بالای فیلد
             textAlign: "right", // راست چین
             mb: 0.5, // فاصله زیر helperText
-            fontSize: "0.85rem",
             mr: 0.5,
             color: labelTextColor,
-            fontWeight: 700,
-            fontSize: 10,
+            fontWeight: 450,
+            fontSize: 12,
           },
         },
       }}

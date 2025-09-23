@@ -1,41 +1,46 @@
 @font-face {
   font-family: IRANSansXFaNum;
+  src: url("../fonts/IRANSansX/IRANSansXFaNum-RegularD4.woff2");
+  font-weight: 400;
+}
+@font-face {
+  font-family: IRANSansX;
   src: url("");
   font-weight: 200;
 }
 @font-face {
-  font-family: IRANSansXFaNum;
+  font-family: IRANSansX;
   src: url("");
   font-weight: 300;
 }
 @font-face {
-  font-family: IRANSansXFaNum;
+  font-family: IRANSansX;
   src: url("../fonts/IRANSansX/IRANSansX-RegularD4.woff2");
   font-weight: 400;
 }
 @font-face {
-  font-family: IRANSansXFaNum;
+  font-family: IRANSansX;
   src: url("../fonts/IRANSansX/IRANSansX-MediumD4.woff2");
   font-weight: 450;
 }
 @font-face {
-  font-family: IRANSansXFaNum;
+  font-family: IRANSansX;
   src: url("");
   font-weight: 500;
 }
 @font-face {
-  font-family: IRANSansXFaNum;
+  font-family: IRANSansX;
   src: url("../fonts/IRANSansX/IRANSansX-DemiBoldD4.woff2");
   font-weight: 600;
 }
 @font-face {
-  font-family: IRANSansXFaNum;
+  font-family: IRANSansX;
   src: url("../fonts/IRANSansX/IRANSansX-BoldD4.woff2");
   font-weight: 700;
 }
 
 @font-face {
-  font-family: IRANSansXFaNum;
+  font-family: IRANSansX;
   src: url("");
   font-weight: 800;
 }
@@ -43,7 +48,7 @@
   visibility: hidden;
 }
 :root {
-  font-family: IRANSansX, IRANSansXFaNum, Arial, sans-serif;
+  font-family: IRANSansXFaNum,IRANSansX, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   padding: 0;

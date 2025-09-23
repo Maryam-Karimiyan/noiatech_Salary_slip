@@ -2,10 +2,10 @@ import { createTheme } from "@mui/material";
 
 const getTheme = () =>
   createTheme({
-    background: {
-      default: "#F5FAFF", // رنگ پس‌زمینه کل صفحات
-    },
     palette: {
+      background: {
+        default: "#F5FAFF", // رنگ پس‌زمینه کل صفحات
+      },
       primary: {
         main: "#007BFF",
         light: "#A8D2FF",
@@ -14,48 +14,48 @@ const getTheme = () =>
       },
       secondary: {
         main: "#A0A3E6",
-        light:"#D8EBFF",
+        light: "#D8EBFF",
         contrastText: "#FFF9EF",
       },
     },
     typography: {
-      fontFamily: "IRANSansXFaNum, Arial, sans-serif", // فونت اصلی برای متن‌ها
+      fontFamily: "IRANSansXFaNum,IRANSansX, Arial, sans-serif", // فونت اصلی برای متن‌ها
     },
     components: {
       MuiCssBaseline: {
         styleOverrides: {
           body: {
-            fontFamily: "IRANSansXFaNum, Arial, sans-serif", // اعمال فونت روی کل body
+            fontFamily: "IRANSansXFaNum,IRANSansX, Arial, sans-serif", // اعمال فونت روی کل body
           },
         },
       },
       MuiInputBase: {
         styleOverrides: {
           root: {
-            fontFamily: "IRANSansXFaNum, Arial, sans-serif",
+            fontFamily: "IRANSansXFaNum,IRANSansX, Arial, sans-serif",
           },
         },
       },
       MuiTable: {
         styleOverrides: {
           root: {
-            fontFamily: "IRANSansXFaNum, Arial, sans-serif",
-            color:"#1D1E24"
+            fontFamily: "IRANSansXFaNum,IRANSansX, Arial, sans-serif",
+            color: "#1D1E24",
           },
         },
       },
       MuiTableCell: {
         styleOverrides: {
           root: {
-            fontFamily: "IRANSansXFaNum, Arial, sans-serif",
-            color:"#1D1E24"
+            fontFamily: "IRANSansXFaNum,IRANSansX, Arial, sans-serif",
+            color: "#1D1E24",
           },
         },
       },
       MuiBottomNavigationAction: {
         styleOverrides: {
           root: {
-            fontFamily: "IRANSansXFaNum, Arial, sans-serif",
+            fontFamily: "IRANSansXFaNum,IRANSansX, Arial, sans-serif",
           },
           label: {
             // رنگ متن در حالت پیش‌فرض (غیرفعال)
@@ -69,7 +69,7 @@ const getTheme = () =>
       MuiInputAdornment: {
         styleOverrides: {
           root: {
-            fontFamily: "IRANSansXFaNum, Arial, sans-serif",
+            fontFamily: "IRANSansXFaNum,IRANSansX, Arial, sans-serif",
           },
         },
       },
