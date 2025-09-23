@@ -30,11 +30,10 @@ export default function InputComponent({
             "& input, & textarea": {
               color: color,
               textAlign: "right",
-              direction:"rtl",
+              direction: "rtl",
               position: hasStartAdornment && "relative",
               left: hasStartAdornment && -20,
               fontSize: 12,
-               backgroundColor: "primary.contrastText"
             },
           },
         },
@@ -53,6 +52,7 @@ export default function InputComponent({
       sx={{
         ...sx,
         "& .MuiOutlinedInput-root": {
+          backgroundColor: "primary.contrastText",
           "& fieldset": {
             borderColor: "primary.light",
             borderRadius: 2,

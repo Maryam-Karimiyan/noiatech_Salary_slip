@@ -2,8 +2,10 @@ import { Box, Container, Typography } from "@mui/material";
 import ButtonComponent from "./ButtonComponent";
 import { UserIcon } from "../assets";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 export default function Header() {
-  const user = useSelector((state) => state.user);
+  let user = useSelector((state) => state.user);
+  const navigate = useNavigate();
   return (
     <Container>
       <Box
@@ -18,7 +20,14 @@ export default function Header() {
           p: 1,
         }}
       >
-        <Box component="img" src="/assets/logout.png" />
+        <Box
+          component="img"
+          src="/assets/logout.png"
+          onClick={() => {
+            navigate("/");
+            user = null;
+          }}
+        />
         <Typography
           sx={{
             color: "primary.contrastText",

@@ -17,21 +17,21 @@ export default function BottomNavbar() {
         <UserIcon fill={isActive ? "primary.main" : "secondary.main"} />
       ),
       label: "پروفایل",
-      path: "/profile",
+      path: "user/profile",
     },
     {
       icon: (isActive) => (
         <SalarySlipIcon fill={isActive ? "primary.main" : "secondary.main"} />
       ),
       label: user === "admin" ? "فیش های حقوقی" : "فیش حقوقی",
-      path: "/salary",
+      path: "user/salary",
     },
     {
       icon: (isActive) => (
         <HomeIcon fill={isActive ? "primary.main" : "secondary.main"} />
       ),
       label: "خانه",
-      path: "/",
+      path: "/user",
     },
   ];
 
@@ -78,7 +78,7 @@ export default function BottomNavbar() {
         value={value}
         onChange={(event, newValue) => {
           setValue(newValue);
-          // navigate(menuItems[newValue].path);
+          navigate(menuItems[newValue].path);
         }}
       >
         {menuItems.map((item, index) => {
