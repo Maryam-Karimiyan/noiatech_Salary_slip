@@ -1,52 +1,55 @@
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import { Paper } from "@mui/material";
-import { HomeIcon, CartIcon, UserIcon, MoreIcon } from "../assets";
+import { Box } from "@mui/material";
+import { HomeIcon, Users2Icon, UserIcon, SalarySlipIcon } from "../assets";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 export default function BottomNavbar() {
   const location = useLocation();
   const navigate = useNavigate();
+  const user = useSelector((state) => state.user);
   const [value, setValue] = useState(0);
-  const menueItems = [
-    {
-      icon: (isActive) => (
-        <MoreIcon fill={isActive ? "primary.main" : "primary.light"} />
-      ),
-      label: "بیشتر",
-      path: "/more",
-    },
-    {
-      icon: (isActive) => (
-        <UserIcon fill={isActive ? "primary.main" : "primary.light"} />
-      ),
-      label: "ورود",
-      path: "/login" || "/register",
-    },
 
+  const baseMenuItems = [
     {
       icon: (isActive) => (
-        <CartIcon fill={isActive ? "primary.main" : "primary.light"} />
+        <UserIcon fill={isActive ? "primary.main" : "secondary.main"} />
       ),
-      label: "سبد خرید",
-      path: "/cart/cart",
+      label: "پروفایل",
+      path: "/profile",
     },
     {
       icon: (isActive) => (
-        <HomeIcon fill={isActive ? "primary.main" : "primary.light"} />
+        <SalarySlipIcon fill={isActive ? "primary.main" : "secondary.main"} />
+      ),
+      label: "فیش حقوقی",
+      path: "/salary",
+    },
+    {
+      icon: (isActive) => (
+        <HomeIcon fill={isActive ? "primary.main" : "secondary.main"} />
       ),
       label: "خانه",
       path: "/",
     },
   ];
+
+  const adminExtraItems = [
+    {
+      icon: (isActive) => (
+        <Users2Icon fill={isActive ? "primary.main" : "secondary.main"} />
+      ),
+      label: "پرسنل",
+      path: "/staff",
+    },
+  ];
+
+  const menuItems =
+    user === "admin" ? [...baseMenuItems, ...adminExtraItems] : baseMenuItems;
+
   useEffect(() => {
-    const currentIndex = menueItems.findIndex((item) => {
-      if (item.label === "ورود") {
-        return (
-          location.pathname.startsWith("/login") ||
-          location.pathname.startsWith("/register")
-        );
-      }
+    const currentIndex = menuItems.findIndex((item) => {
       return item.path === location.pathname;
     });
 
@@ -54,7 +57,7 @@ export default function BottomNavbar() {
   }, [location.pathname]);
 
   return (
-    <Paper
+    <Box
       sx={{
         position: "fixed",
         bottom: 20,
@@ -65,27 +68,28 @@ export default function BottomNavbar() {
       elevation={3}
     >
       <BottomNavigation
-        sx={{ bgcolor: "secondary.contrastText", borderRadius: "inherit" }}
+        sx={{
+          border: "1px solid",
+          borderColor: "primary.main",
+          borderRadius: "inherit",
+          py: 5,
+        }}
         showLabels
         value={value}
         onChange={(event, newValue) => {
           setValue(newValue);
-          navigate(menueItems[newValue].path);
+          // navigate(menuItems[newValue].path);
         }}
       >
-        {menueItems.map((item, index) => {
+        {menuItems.map((item, index) => {
           return (
             <BottomNavigationAction
               key={index}
               label={item.label}
               icon={item.icon(value === index)}
               sx={{
-                color: "primary.light",
-                "&.Mui-selected": {
-                  color: value === index ? "primary.main" : "",
-                },
                 "& .MuiBottomNavigationAction-label": {
-                  fontSize: 10,
+                  fontSize: 14,
                   fontWeight: 700,
                   marginTop: 0.5,
                 },
@@ -94,6 +98,6 @@ export default function BottomNavbar() {
           );
         })}
       </BottomNavigation>
-    </Paper>
+    </Box>
   );
 }
