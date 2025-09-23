@@ -35,11 +35,10 @@ const getTheme = () =>
           },
         },
       },
-
       MuiBottomNavigationAction: {
         styleOverrides: {
           root: {
-            fontFamily: "IRANSansXFaNum, Arial, sans-serif",
+            fontFamily: "IRANSansX, Arial, sans-serif",
           },
           label: {
             // رنگ متن در حالت پیش‌فرض (غیرفعال)

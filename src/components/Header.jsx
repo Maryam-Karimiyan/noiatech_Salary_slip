@@ -1,12 +1,42 @@
-import { Box, IconButton } from "@mui/material";
-import Menu from "./Menu";
-import { useState } from "react";
+import { Box, Container, Typography } from "@mui/material";
+import ButtonComponent from "./ButtonComponent";
+import { UserIcon } from "../assets";
 export default function Header() {
-  const [open, setOpen] = useState(false);
-
   return (
-    <Box sx={{ display: "flex", justifyContent: "center" }}>
-      <Menu openMenu={open} onClose={() => setOpen(false)} />
-    </Box>
+    <Container>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          gap: 3,
+          bgcolor: "primary.main",
+          borderRadius: "0 0 10px 10px",
+          width: "100%",
+          p: 1,
+        }}
+      >
+        <Box component="img" src="/assets/logout.png" />
+        <Typography
+          sx={{
+            color: "primary.contrastText",
+            fontWeight: 700,
+            fontSize: 14,
+            pl: 3,
+          }}
+        >
+          پنل موسسه پرستاران
+        </Typography>
+        <ButtonComponent
+          color="primary.contrastText"
+          variant="text"
+          endIcon={<UserIcon fill="primary.contrastText" />}
+        >
+          <Typography sx={{ color: "primary.contrastText", fontSize: 12 }}>
+            پرسنل
+          </Typography>
+        </ButtonComponent>
+      </Box>
+    </Container>
   );
 }
