@@ -18,7 +18,7 @@ export default function SummaryTable() {
       <TableContainer
         component={Paper}
         sx={{
-          border: "2px solid",
+          border: "1px solid",
           borderColor: "primary.main",
           borderRadius: 2,
           boxShadow: "none",
@@ -37,8 +37,9 @@ export default function SummaryTable() {
                     fontWeight: 700,
                     fontSize: 14,
                     color: "primary.dark",
-                    borderRight: index < Items.length - 1 ? "2px solid" : "none",
-                    borderBottom: "2px solid",
+                    borderRight:
+                      index < Items.length - 1 ? "1px solid" : "none",
+                    borderBottom: "1px solid",
                     borderColor: "primary.main",
                     p: 1,
                   }}
@@ -58,7 +59,8 @@ export default function SummaryTable() {
                     fontWeight: 700,
                     fontSize: 14,
                     color: "primary.dark",
-                    borderRight: index < values.length - 1 ? "2px solid" : "none",
+                    borderRight:
+                      index < values.length - 1 ? "1px solid" : "none",
                     borderBottom: "none",
                     borderColor: "primary.main",
                     p: 1,
@@ -77,7 +79,7 @@ export default function SummaryTable() {
         component={Paper}
         sx={{
           bgcolor: "secondary.light",
-          border: "2px solid",
+          border: "1px solid",
           borderColor: "primary.main",
           borderRadius: 2,
           boxShadow: "none",
@@ -95,7 +97,7 @@ export default function SummaryTable() {
                   color: "primary.dark",
                   fontWeight: 700,
                   fontSize: 14,
-                  borderRight: "2px solid",
+                  borderRight: "1px solid",
                   borderBottom: 0,
                   borderColor: "primary.main",
                   p: 1,
