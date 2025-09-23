@@ -39,7 +39,9 @@
   src: url("");
   font-weight: 800;
 }
-
+.grecaptcha-badge {
+  visibility: hidden;
+}
 :root {
   font-family: IRANSansX, IRANSansXFaNum, Arial, sans-serif;
   line-height: 1.5;
@@ -48,7 +50,7 @@
   margin: 0;
   /* color-scheme: light dark; */
   /* color: rgba(255, 255, 255, 0.87); */
-  /* background-color: #242424; */
+  /* background-color: #F5FAFF; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

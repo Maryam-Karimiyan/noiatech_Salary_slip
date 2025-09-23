@@ -21,8 +21,8 @@ export function SalarySlipIcon({ fill, width = "23" }) {
     <SvgIcon
       sx={{ color: fill, width: width }}
       width="23"
-      height="21"
-      viewBox="0 0 23 21"
+      height="23"
+      viewBox="0 0 23 23"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -37,9 +37,9 @@ export function UserIcon({ fill }) {
   return (
     <SvgIcon
       sx={{ color: fill }}
-      width="16"
-      height="21"
-      viewBox="0 0 16 21"
+      width="23"
+      height="23"
+      viewBox="0 0 23 23"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >

@@ -1,12 +1,9 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  user: null,
-};
-
+//admin or user
 const userSlice = createSlice({
-  name: 'user',
-  initialState,
+  name: "user",
+  initialState: null,
   reducers: {
     login: (state, action) => {
       state.user = action.payload; // payload نقش کاربر را شامل می‌شود
