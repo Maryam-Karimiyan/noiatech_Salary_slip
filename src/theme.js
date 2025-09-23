@@ -35,6 +35,21 @@ const getTheme = () =>
           },
         },
       },
+
+      MuiBottomNavigationAction: {
+        styleOverrides: {
+          root: {
+            fontFamily: "IRANSansXFaNum, Arial, sans-serif",
+          },
+          label: {
+            // رنگ متن در حالت پیش‌فرض (غیرفعال)
+            color: "#A0A3E6",
+            "&.Mui-selected": {
+              color: "#007BFF",
+            },
+          },
+        },
+      },
       MuiInputAdornment: {
         styleOverrides: {
           root: {

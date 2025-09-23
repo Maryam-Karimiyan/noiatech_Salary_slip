@@ -39,7 +39,9 @@
   src: url("");
   font-weight: 800;
 }
-
+.grecaptcha-badge {
+  visibility: hidden;
+}
 :root {
   font-family: IRANSansX, IRANSansXFaNum, Arial, sans-serif;
   line-height: 1.5;
