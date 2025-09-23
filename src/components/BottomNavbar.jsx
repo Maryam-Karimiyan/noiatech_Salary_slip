@@ -23,7 +23,7 @@ export default function BottomNavbar() {
       icon: (isActive) => (
         <SalarySlipIcon fill={isActive ? "primary.main" : "secondary.main"} />
       ),
-      label: "فیش حقوقی",
+      label: user === "admin" ? "فیش های حقوقی" : "فیش حقوقی",
       path: "/salary",
     },
     {
@@ -72,7 +72,7 @@ export default function BottomNavbar() {
           border: "1px solid",
           borderColor: "primary.main",
           borderRadius: "inherit",
-          py: 5,
+          py: 4,
         }}
         showLabels
         value={value}

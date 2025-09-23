@@ -1,7 +1,9 @@
 import { Box, Container, Typography } from "@mui/material";
 import ButtonComponent from "./ButtonComponent";
 import { UserIcon } from "../assets";
+import { useSelector } from "react-redux";
 export default function Header() {
+  const user = useSelector((state) => state.user);
   return (
     <Container>
       <Box
@@ -33,7 +35,7 @@ export default function Header() {
           endIcon={<UserIcon fill="primary.contrastText" />}
         >
           <Typography sx={{ color: "primary.contrastText", fontSize: 12 }}>
-            پرسنل
+            {user === "admin" ? "مدیر" : "پرسنل"}
           </Typography>
         </ButtonComponent>
       </Box>

@@ -14,6 +14,7 @@ const getTheme = () =>
       },
       secondary: {
         main: "#A0A3E6",
+        light:"#D8EBFF",
         contrastText: "#FFF9EF",
       },
     },
@@ -35,10 +36,26 @@ const getTheme = () =>
           },
         },
       },
+      MuiTable: {
+        styleOverrides: {
+          root: {
+            fontFamily: "IRANSansXFaNum, Arial, sans-serif",
+            color:"#1D1E24"
+          },
+        },
+      },
+      MuiTableCell: {
+        styleOverrides: {
+          root: {
+            fontFamily: "IRANSansXFaNum, Arial, sans-serif",
+            color:"#1D1E24"
+          },
+        },
+      },
       MuiBottomNavigationAction: {
         styleOverrides: {
           root: {
-            fontFamily: "IRANSansX, Arial, sans-serif",
+            fontFamily: "IRANSansXFaNum, Arial, sans-serif",
           },
           label: {
             // رنگ متن در حالت پیش‌فرض (غیرفعال)
