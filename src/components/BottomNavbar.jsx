@@ -17,14 +17,14 @@ export default function BottomNavbar() {
         <UserIcon fill={isActive ? "primary.main" : "secondary.main"} />
       ),
       label: "پروفایل",
-      path: `${user}//profile`,
+      path: `${user}/profile`,
     },
     {
       icon: (isActive) => (
         <SalarySlipIcon fill={isActive ? "primary.main" : "secondary.main"} />
       ),
       label: "فیش حقوقی",
-      path: `${user}//salary`,
+      path: `${user}/salary`,
     },
     {
       icon: (isActive) => (
@@ -45,7 +45,7 @@ export default function BottomNavbar() {
         <Users2Icon fill={isActive ? "primary.main" : "secondary.main"} />
       ),
       label: "پرسنل",
-      path: "/staff",
+      path: `/${user}/personels`,
     };
     menuItems.splice(1, 0, adminExtraItem);
     menuItems[2].label = "فیش های حقوقی";

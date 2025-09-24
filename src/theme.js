@@ -15,7 +15,7 @@ const getTheme = () =>
       secondary: {
         main: "#A0A3E6",
         light: "#D8EBFF",
-        contrastText: "#FFF9EF",
+        contrastText: "#9A9BAD",
       },
     },
     typography: {

@@ -87,3 +87,24 @@ export function DeleteIcon({ fill = "#DE3030" }) {
     </SvgIcon>
   );
 }
+export function ArrowDown({ fill = "#007BFF" }) {
+  return (
+    <SvgIcon
+      sx={{ color: fill,fontSize:18 }}
+      width="19"
+      height="9"
+      viewBox="0 0 19 9"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <svg>
+        <path
+          d="M1.66663 0.999995L9.05235 7.33061C9.50174 7.7158 10.1649 7.7158 10.6142 7.33061L18 0.999995"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+      </svg>
+    </SvgIcon>
+  );
+}

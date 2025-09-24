@@ -5,6 +5,9 @@ import UserDashboard from "./pages/userPages/UserDashboard";
 import UserSalary from "./pages/userPages/UserSalary";
 import UserProfile from "./pages/userPages/UserProfile";
 import AdminDashboard from "./pages/adminPages/AdminDashboard";
+import SalariesOfUsers from "./pages/adminPages/SalariesOfUsers";
+import CreateSalarySlip from "./pages/adminPages/CreateSalarySlip";
+import PersonelManagement from "./pages/adminPages/PersonelManagement";
 
 function App() {
   return (
@@ -18,8 +21,10 @@ function App() {
               <Route path="profile" element={<UserProfile />} />
             </Route>
             <Route path="/admin" element={<AdminDashboard />}>
-              {/* <Route path="salaries" element={<UserSalary />} /> */}
-              {/* <Route path="profile" element={<UserProfile />} /> */}
+              <Route path="profile" element={<UserProfile />} />
+              <Route path="salary" element={<SalariesOfUsers />} />
+              <Route path="createsalaryslip" element={<CreateSalarySlip />} />
+              <Route path="personels" element={<PersonelManagement />} />
             </Route>
           </Route>
 
