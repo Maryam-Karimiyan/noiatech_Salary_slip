@@ -17,36 +17,39 @@ export default function BottomNavbar() {
         <UserIcon fill={isActive ? "primary.main" : "secondary.main"} />
       ),
       label: "پروفایل",
-      path: "/profile",
+      path: `${user}//profile`,
     },
     {
       icon: (isActive) => (
         <SalarySlipIcon fill={isActive ? "primary.main" : "secondary.main"} />
       ),
-      label: user === "admin" ? "فیش های حقوقی" : "فیش حقوقی",
-      path: "/salary",
+      label: "فیش حقوقی",
+      path: `${user}//salary`,
     },
     {
       icon: (isActive) => (
         <HomeIcon fill={isActive ? "primary.main" : "secondary.main"} />
       ),
       label: "خانه",
-      path: "/",
+      path: `/${user}`,
     },
   ];
 
-  const adminExtraItems = [
-    {
+  // const menuItems =
+  //   user === "admin" ? [...baseMenuItems, ...adminExtraItems] : baseMenuItems;
+  const menuItems = [...baseMenuItems];
+
+  if (user === "admin") {
+    const adminExtraItem = {
       icon: (isActive) => (
         <Users2Icon fill={isActive ? "primary.main" : "secondary.main"} />
       ),
       label: "پرسنل",
       path: "/staff",
-    },
-  ];
-
-  const menuItems =
-    user === "admin" ? [...baseMenuItems, ...adminExtraItems] : baseMenuItems;
+    };
+    menuItems.splice(1, 0, adminExtraItem);
+    menuItems[2].label = "فیش های حقوقی";
+  }
 
   useEffect(() => {
     const currentIndex = menuItems.findIndex((item) => {
@@ -78,7 +81,7 @@ export default function BottomNavbar() {
         value={value}
         onChange={(event, newValue) => {
           setValue(newValue);
-          // navigate(menuItems[newValue].path);
+          navigate(menuItems[newValue].path);
         }}
       >
         {menuItems.map((item, index) => {
@@ -88,8 +91,9 @@ export default function BottomNavbar() {
               label={item.label}
               icon={item.icon(value === index)}
               sx={{
+                p: 0,
                 "& .MuiBottomNavigationAction-label": {
-                  fontSize: 14,
+                  fontSize: 12,
                   fontWeight: 700,
                   marginTop: 0.5,
                 },

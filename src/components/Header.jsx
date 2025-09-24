@@ -2,8 +2,10 @@ import { Box, Container, Typography } from "@mui/material";
 import ButtonComponent from "./ButtonComponent";
 import { UserIcon } from "../assets";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 export default function Header() {
   const user = useSelector((state) => state.user);
+  const navigate = useNavigate();
   return (
     <Container>
       <Box
@@ -33,6 +35,9 @@ export default function Header() {
           color="primary.contrastText"
           variant="text"
           endIcon={<UserIcon fill="primary.contrastText" />}
+          onClick={() => {
+            navigate(`/${user}/profile`);
+          }}
         >
           <Typography sx={{ color: "primary.contrastText", fontSize: 12 }}>
             {user === "admin" ? "مدیر" : "پرسنل"}

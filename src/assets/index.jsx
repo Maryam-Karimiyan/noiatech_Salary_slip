@@ -53,9 +53,9 @@ export function Users2Icon({ fill }) {
   return (
     <SvgIcon
       sx={{ color: fill }}
-      width="6"
-      height="22"
-      viewBox="0 0 6 22"
+      width="23"
+      height="23"
+      viewBox="0 0 23 23"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >

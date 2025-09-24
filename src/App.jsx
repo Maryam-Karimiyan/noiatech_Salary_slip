@@ -4,6 +4,7 @@ import MainLayout from "./pages/MainLayout";
 import UserDashboard from "./pages/userPages/UserDashboard";
 import UserSalary from "./pages/userPages/UserSalary";
 import UserProfile from "./pages/userPages/UserProfile";
+import AdminDashboard from "./pages/adminPages/AdminDashboard";
 
 function App() {
   return (
@@ -12,10 +13,13 @@ function App() {
         <Routes>
           <Route path="/" element={<LoginPage />} />
           <Route element={<MainLayout />}>
-            {/* <Route path="/admin" element={<AdminDashboard />} /> */}
             <Route path="/user" element={<UserDashboard />}>
               <Route path="salary" element={<UserSalary />} />
               <Route path="profile" element={<UserProfile />} />
+            </Route>
+            <Route path="/admin" element={<AdminDashboard />}>
+              {/* <Route path="salaries" element={<UserSalary />} /> */}
+              {/* <Route path="profile" element={<UserProfile />} /> */}
             </Route>
           </Route>
 
