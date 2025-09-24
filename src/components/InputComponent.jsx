@@ -9,7 +9,6 @@ export default function InputComponent({
   labelTextColor = "primary.dark",
   sx,
   InputProps,
-  typeNumber = false,
   readOnly = false,
   ...rest
 }) {
@@ -17,7 +16,6 @@ export default function InputComponent({
   return (
     <TextField
       readOnly={readOnly}
-      type={typeNumber ? "number" : ""}
       helperText={helperText && helperText}
       size={size && size}
       label={label && label}
@@ -30,11 +28,10 @@ export default function InputComponent({
             "& input, & textarea": {
               color: color,
               textAlign: "right",
-              direction:"rtl",
+              direction: "rtl",
               position: hasStartAdornment && "relative",
               left: hasStartAdornment && -20,
               fontSize: 12,
-               backgroundColor: "primary.contrastText"
             },
           },
         },
@@ -57,6 +54,7 @@ export default function InputComponent({
             borderColor: "primary.light",
             borderRadius: 2,
           },
+          backgroundColor: "primary.contrastText",
         },
       }}
       {...rest}

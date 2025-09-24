@@ -1,7 +1,16 @@
 import { Box, InputAdornment, Typography } from "@mui/material";
 import InputComponent from "../../components/InputComponent";
 import ButtonComponent from "../../components/ButtonComponent";
+import { useState } from "react";
 export default function UserProfile() {
+  const [password, setPassword] = useState("");
+  const [displayedPassword, setDisplayedPassword] = useState("");
+  const handleChange = (event) => {
+    const value = event.target.value;
+    setPassword(value);
+    const starCharacter = ""; // کاراکتر ستاره مورد نظر
+    setDisplayedPassword(starCharacter.repeat(value.length));
+  };
   return (
     <Box sx={{ mx: 4, py: 2, textAlign: "center" }}>
       <Box
@@ -34,12 +43,11 @@ export default function UserProfile() {
             width: "95%",
           }}
         />
-        <Box sx={{ display: "flex", gap: 1, width: "95%" }}>
+        <Box sx={{ display: "flex", gap: 1, width: "95%",justifyContent:"center" }}>
           <InputComponent helperText="وضعیت" />
           <InputComponent helperText="سمت" />
         </Box>
         <InputComponent
-          typeNumber={true}
           helperText="شماره موبایل"
           sx={{
             width: "95%",
@@ -74,13 +82,10 @@ export default function UserProfile() {
 
       <InputComponent
         helperText="رمز عبور"
-        type="password"
+        value={displayedPassword}
+        onChange={handleChange}
         sx={{
           width: "95%",
-          "& .MuiInputBase-input": {
-            WebkitTextSecurity: "'❤️'", // در کروم/سافاری میشه کاراکتر دلخواه داد
-            MozTextSecurity: "❤️",
-          },
         }}
       />
       <ButtonComponent variant="outlined" sx={{ width: "95%", mt: 12 }}>
