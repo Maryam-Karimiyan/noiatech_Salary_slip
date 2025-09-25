@@ -14,8 +14,7 @@ import { forwardRef, useState } from "react";
 import ProfileFields from "../ProfileFields";
 import InputComponent from "../InputComponent";
 import ButtonComponent from "../ButtonComponent";
-// فرض کنید آیکون بک شما هم از assets وارد شده باشد
-// import { BackIcon } from '../../assets'; // اگر نیاز بود
+import { CurvedPaper } from "../CurvedPaper";
 
 export default function CreatePersonelDialog({ open, onClose }) {
   const [password, setPassword] = useState("");
@@ -35,16 +34,13 @@ export default function CreatePersonelDialog({ open, onClose }) {
       keepMounted
       transition={Transition}
       onClose={onClose}
+      PaperComponent={CurvedPaper}
       sx={{
+        "& .MuiDialog-container": {
+          alignItems: "flex-end", // بچسبه پایین
+        },
         "& .MuiPaper-root": {
-          position: "absolute",
-          //   bottom: -30,
-          bottom: 0,
-          width: "97%",
-          //   overflow: "visible",
-          overflow: "hidden",
-          borderTopLeftRadius: 20,
-          position: "relative",
+          m: 1,
         },
       }}
     >
@@ -53,30 +49,19 @@ export default function CreatePersonelDialog({ open, onClose }) {
         sx={{
           color: "#C20531",
           bgcolor: "#FFD5DF",
-          border: "1px solid",
+          border: "2px solid",
           borderColor: "#C20531",
           borderRadius: 2,
           position: "absolute",
-          top: -10,
-          right: 0,
+          top: 1,
+          right: 1,
           p: 0.5,
-          "&::before": {
-            content: '""',
-            position: "absolute",
-            top: -10,
-            right: 0,
-            width: "40px",
-            height: "40px",
-            background: "red",
-            borderBottomLeftRadius: "20px",
-            boxShadow: "5px 5px 0 5px #ffff",
-          },
         }}
       >
-        <CloseIcon fontSize="small" />
+        <CloseIcon sx={{ fontSize: 14 }} />
       </IconButton>
 
-      <DialogContent sx={{ p: 3, textAlign: "center" }}>
+      <DialogContent sx={{ p: 2, textAlign: "center" }}>
         <Box pb={4}>
           <ProfileFields />
           <InputComponent
