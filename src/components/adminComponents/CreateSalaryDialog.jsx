@@ -4,23 +4,17 @@ import {
   Box,
   IconButton,
   Slide,
+  Typography,
+  Stack,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { forwardRef, useState } from "react";
-import ProfileFields from "../ProfileFields";
-import InputComponent from "../InputComponent";
 import ButtonComponent from "../ButtonComponent";
 import { CurvedPaper } from "../CurvedPaper";
+import { ChooseDateMonth, ChooseDateYear } from "../ChooseDate";
+import ChoosePersonel from "./ChoosePersonel";
 
-export default function CreatePersonelDialog({ open, onClose }) {
-  const [password, setPassword] = useState("");
-  const [displayedPassword, setDisplayedPassword] = useState("");
-  const handleChange = (event) => {
-    const value = event.target.value;
-    setPassword(value);
-    const starCharacter = "*"; // کاراکتر ستاره مورد نظر
-    setDisplayedPassword(starCharacter.repeat(value.length));
-  };
+export default function CreateSalaryDialog({ open, onClose }) {
   const Transition = forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
   });
@@ -58,20 +52,16 @@ export default function CreatePersonelDialog({ open, onClose }) {
       </IconButton>
 
       <DialogContent sx={{ p: 2, textAlign: "center" }}>
-        <Box pb={4}>
-          <ProfileFields />
-          <InputComponent
-            helperText="رمز عبور موقت"
-            value={displayedPassword}
-            onChange={handleChange}
-            sx={{
-              width: "95%",
-              mt: 1,
-            }}
-          />
-        </Box>
-        <ButtonComponent fullWidth sx={{ py: 1.5, fontSize: 18 }}>
-          ثبت
+        <Stack px={3} py={2} gap={2}>
+          <ChooseDateYear />
+          <ChooseDateMonth />
+          <ChoosePersonel />
+        </Stack>
+        <ButtonComponent
+          fullWidth
+          sx={{ py: 1.5, fontSize: 18, borderRadius: 2 }}
+        >
+          انتخاب فایل
         </ButtonComponent>
       </DialogContent>
     </Dialog>

@@ -9,11 +9,18 @@ import {
 import ButtonComponent from "../../components/ButtonComponent";
 import { useRef, useState } from "react";
 import SalaryItems from "../../components/adminComponents/SalaryItems";
-import { useNavigate } from "react-router-dom";
+import CreateSalaryDialog from "../../components/adminComponents/CreateSalaryDialog";
 
 export default function SalariesOfUsers() {
-  const navigate = useNavigate();
   const selectRef = useRef(null);
+  const [openDialog, setOpenDialog] = useState(false);
+  const handleOpenDialog = () => {
+    setOpenDialog(true);
+  };
+
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+  };
   const menuItems = ["1404", "1403", "1402", "1401", "1400"];
   const [year, setYear] = useState("1404");
   const handleChange = (event) => {
@@ -87,9 +94,7 @@ export default function SalariesOfUsers() {
         </ButtonComponent>
       </Box> */}
       <ButtonComponent
-        onClick={() => {
-          navigate("/admin/createsalaryslip");
-        }}
+        onClick={handleOpenDialog}
         sx={{
           px: "30px",
           py: "15px",
@@ -101,6 +106,7 @@ export default function SalariesOfUsers() {
       >
         <Typography fontSize={18}>فیش جدید</Typography>
       </ButtonComponent>
+      <CreateSalaryDialog open={openDialog} onClose={handleCloseDialog} />
     </Box>
   );
 }
