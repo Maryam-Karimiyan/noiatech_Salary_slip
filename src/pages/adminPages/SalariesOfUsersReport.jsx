@@ -1,14 +1,13 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import { ChooseDateMonth, ChooseDateYear } from "../../components/ChooseDate";
 import SalaryBenefitDebtTable from "../../components/userComponents/SalaryBenefitDebtTable";
 import SummaryTable from "../../components/userComponents/SummaryTable";
 
 export default function SalariesOfUsersReport() {
   return (
-    <Box
+    <Stack
       sx={{
         p: 3,
-        display: "flex",
         flexDirection: "column",
         gap: 2,
       }}
@@ -26,7 +25,8 @@ export default function SalariesOfUsersReport() {
           fontWeight: 800,
           color: "primary.dark",
           textAlign: "center",
-          py: 1,
+          fontSize: 14,
+          py: 1.5,
           pb: 3,
           mb: -4,
         }}
@@ -34,9 +34,11 @@ export default function SalariesOfUsersReport() {
         فاطمه عزیزی
       </Typography>
       {/* tables */}
-      <SalaryBenefitDebtTable type="benefit" />
-      <SalaryBenefitDebtTable type="debt" />
-      <SummaryTable />
-    </Box>
+      <Stack gap={1}>
+        <SalaryBenefitDebtTable type="benefit" />
+        <SalaryBenefitDebtTable type="debt" />
+        <SummaryTable />
+      </Stack>
+    </Stack>
   );
 }

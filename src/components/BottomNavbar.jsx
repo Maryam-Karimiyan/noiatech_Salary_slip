@@ -13,23 +13,17 @@ export default function BottomNavbar() {
 
   const baseMenuItems = [
     {
-      icon: (isActive) => (
-        <UserIcon fill={isActive ? "primary.main" : "secondary.main"} />
-      ),
+      icon: UserIcon,
       label: "پروفایل",
-      path: `${user}/profile`,
+      path: `/${user}/profile`,
     },
     {
-      icon: (isActive) => (
-        <SalarySlipIcon fill={isActive ? "primary.main" : "secondary.main"} />
-      ),
+      icon: SalarySlipIcon,
       label: "فیش حقوقی",
-      path: `${user}/salary`,
+      path: `/${user}/salary`,
     },
     {
-      icon: (isActive) => (
-        <HomeIcon fill={isActive ? "primary.main" : "secondary.main"} />
-      ),
+      icon: HomeIcon,
       label: "خانه",
       path: `/${user}`,
     },
@@ -41,9 +35,8 @@ export default function BottomNavbar() {
 
   if (user === "admin") {
     const adminExtraItem = {
-      icon: (isActive) => (
-        <Users2Icon fill={isActive ? "primary.main" : "secondary.main"} />
-      ),
+      icon: Users2Icon,
+
       label: "پرسنل",
       path: `/${user}/personels`,
     };
@@ -89,11 +82,15 @@ export default function BottomNavbar() {
             <BottomNavigationAction
               key={index}
               label={item.label}
-              icon={item.icon(value === index)}
+              icon={
+                <item.icon
+                  fill={value === index ? "primary.main" : "secondary.main"}
+                />
+              }
               sx={{
                 p: 0,
                 "& .MuiBottomNavigationAction-label": {
-                  fontSize: 12,
+                  fontSize: { xs: 11, sm: 12 },
                   fontWeight: 700,
                   marginTop: 0.5,
                 },

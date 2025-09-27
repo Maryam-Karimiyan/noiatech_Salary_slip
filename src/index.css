@@ -2,8 +2,9 @@
   font-family: IRANSansXFaNum;
   src: url("../fonts/IRANSansX/IRANSansXFaNum-RegularD4.woff2");
   font-weight: 400;
+   unicode-range: U+0660-0669, U+06F0-06F9, U+0030-0039; /* اعداد فارسی و انگلیسی */
 }
-@font-face {
+/* @font-face {
   font-family: IRANSansX;
   src: url("");
   font-weight: 200;
@@ -12,7 +13,7 @@
   font-family: IRANSansX;
   src: url("");
   font-weight: 300;
-}
+} */
 @font-face {
   font-family: IRANSansX;
   src: url("../fonts/IRANSansX/IRANSansX-RegularD4.woff2");
@@ -23,11 +24,11 @@
   src: url("../fonts/IRANSansX/IRANSansX-MediumD4.woff2");
   font-weight: 450;
 }
-@font-face {
+/* @font-face {
   font-family: IRANSansX;
   src: url("");
   font-weight: 500;
-}
+} */
 @font-face {
   font-family: IRANSansX;
   src: url("../fonts/IRANSansX/IRANSansX-DemiBoldD4.woff2");
@@ -39,16 +40,16 @@
   font-weight: 700;
 }
 
-@font-face {
+/* @font-face {
   font-family: IRANSansX;
   src: url("");
   font-weight: 800;
-}
+} */
 .grecaptcha-badge {
   visibility: hidden;
 }
 :root {
-  font-family: IRANSansXFaNum,IRANSansX, Arial, sans-serif;
+  font-family: IRANSansX, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   padding: 0;
