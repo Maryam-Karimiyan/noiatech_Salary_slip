@@ -89,7 +89,7 @@ export default function SalaryBenefitDebtTable({ type }) {
                   width: "50%",
                   border: "none",
                   fontSize: 12,
-                  p: 0.5,
+                  py: 0.5,
                 }}
               >
                 {item.name}

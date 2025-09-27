@@ -13,8 +13,10 @@ import ButtonComponent from "../ButtonComponent";
 import { CurvedPaper } from "../CurvedPaper";
 import { ChooseDateMonth, ChooseDateYear } from "../ChooseDate";
 import ChoosePersonel from "./ChoosePersonel";
+import { useNavigate } from "react-router-dom";
 
 export default function CreateSalaryDialog({ open, onClose }) {
+  const navigate=useNavigate()
   const Transition = forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
   });
@@ -58,6 +60,7 @@ export default function CreateSalaryDialog({ open, onClose }) {
           <ChoosePersonel />
         </Stack>
         <ButtonComponent
+        onClick={()=>navigate('/admin/reportsalary')}
           fullWidth
           sx={{ py: 1.5, fontSize: 18, borderRadius: 2 }}
         >

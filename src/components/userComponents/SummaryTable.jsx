@@ -25,7 +25,7 @@ export default function SummaryTable() {
           overflow: "hidden",
         }}
       >
-        <Table sx={{ minWidth: 350 }} aria-label="summary table">
+        <Table sx={{ minWidth: {xs:330,sm:350} }} aria-label="summary table">
           <TableHead>
             <TableRow>
               {Items.map((item, index) => (
